@@ -1,24 +1,21 @@
 const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
-const port = process.env.PORT;
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
-const path = require("path");
+const port = process.env.PORT || 5000;
 
 connectDB();
 
 const app = express();
 
-// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// routes
 app.use("/api/goals", require("./routes/goalRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 
-// for frontend
+// Serve frontend
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "../frontend/build")));
 
@@ -28,11 +25,9 @@ if (process.env.NODE_ENV === "production") {
 		)
 	);
 } else {
-	app.get("/", (req, res) => res.send("Please set to production."));
+	app.get("/", (req, res) => res.send("Please set to production"));
 }
 
-// overwrites default Express handler and uses custom one
 app.use(errorHandler);
 
-// listens for specified port
-app.listen(port || 8000, () => console.log(`server started on port ${port}`));
+app.listen(port, () => console.log(`Server started on port ${port}`));

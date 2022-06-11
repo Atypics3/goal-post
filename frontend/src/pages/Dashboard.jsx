@@ -5,6 +5,8 @@ import GoalForm from "../components/GoalForm";
 import GoalItem from "../components/GoalItem";
 import Spinner from "../components/Spinner";
 import { getGoals, reset } from "../features/goals/goalSlice";
+// import reset from "../features/goals/goalSlice";
+// import reset from "../features/auth/authSlice";
 
 function Dashboard() {
 	const navigate = useNavigate();
@@ -16,21 +18,17 @@ function Dashboard() {
 	);
 
 	useEffect(() => {
-		//
-		if (!isError) {
+		if (isError) {
 			console.log(message);
+		} else {
+			dispatch(reset());
 		}
 
-		// if not a user, then go to the login page
-		if (!user) {
+		if (user) {
+			dispatch(getGoals());
+		} else {
 			navigate("/login");
 		}
-
-		dispatch(getGoals());
-
-		return () => {
-			dispatch(reset());
-		};
 	}, [user, navigate, isError, message, dispatch]);
 
 	if (isLoading) {
@@ -43,6 +41,7 @@ function Dashboard() {
 				<h1>Welcome {user && user.name}</h1>
 				<p>Goals Dashboard</p>
 			</section>
+
 			<GoalForm />
 
 			<section className="content">

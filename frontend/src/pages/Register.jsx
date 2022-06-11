@@ -1,8 +1,8 @@
-import { FaUser } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaUser } from "react-icons/fa";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
 
@@ -23,7 +23,6 @@ function Register() {
 		(state) => state.auth
 	);
 
-	// useEffect
 	useEffect(() => {
 		if (isError) {
 			toast.error(message);
@@ -36,7 +35,6 @@ function Register() {
 		dispatch(reset());
 	}, [user, isError, isSuccess, message, navigate, dispatch]);
 
-	// onchange
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
@@ -48,7 +46,7 @@ function Register() {
 		e.preventDefault();
 
 		if (password !== password2) {
-			toast.error("Passwords don't match!");
+			toast.error("Passwords do not match");
 		} else {
 			const userData = {
 				name,
@@ -56,12 +54,10 @@ function Register() {
 				password,
 			};
 
-			// creates user data
 			dispatch(register(userData));
 		}
 	};
 
-	// spinner
 	if (isLoading) {
 		return <Spinner />;
 	}
@@ -72,12 +68,11 @@ function Register() {
 				<h1>
 					<FaUser /> Register
 				</h1>
-				<p>Please create an account.</p>
+				<p>Please create an account</p>
 			</section>
 
 			<section className="form">
 				<form onSubmit={onSubmit}>
-					{/* name */}
 					<div className="form-group">
 						<input
 							type="text"
@@ -89,8 +84,6 @@ function Register() {
 							onChange={onChange}
 						/>
 					</div>
-
-					{/* email */}
 					<div className="form-group">
 						<input
 							type="email"
@@ -102,8 +95,6 @@ function Register() {
 							onChange={onChange}
 						/>
 					</div>
-
-					{/* password */}
 					<div className="form-group">
 						<input
 							type="password"
@@ -111,12 +102,10 @@ function Register() {
 							id="password"
 							name="password"
 							value={password}
-							placeholder="Enter your password"
+							placeholder="Enter password"
 							onChange={onChange}
 						/>
 					</div>
-
-					{/* password2 */}
 					<div className="form-group">
 						<input
 							type="password"
@@ -124,15 +113,13 @@ function Register() {
 							id="password2"
 							name="password2"
 							value={password2}
-							placeholder="Confirm your password"
+							placeholder="Confirm password"
 							onChange={onChange}
 						/>
 					</div>
-
-					{/* button */}
 					<div className="form-group">
 						<button type="submit" className="btn btn-block">
-							Register
+							Submit
 						</button>
 					</div>
 				</form>
