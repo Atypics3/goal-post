@@ -50,6 +50,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 		throw new Error("User is not authorized.");
 	}
 
+	// if so, then update said goal
 	const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
 		new: true,
 	});
