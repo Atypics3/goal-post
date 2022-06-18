@@ -28,7 +28,7 @@ const getGoals = async (token) => {
 	return response.data;
 };
 
-// update user goal
+// update user goals
 const updateGoal = async (goalID, body, token) => {
 	const config = {
 		headers: {

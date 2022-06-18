@@ -47,7 +47,7 @@ export const getGoals = createAsyncThunk(
 	}
 );
 
-// update user goal
+// update user goals
 export const updateGoal = createAsyncThunk(
 	"goals/update",
 	async (goalData, thunkAPI) => {

@@ -7,11 +7,13 @@ function GoalItem({ goal }) {
 
 	const dispatch = useDispatch();
 
-	const onEdit = (e) => {
+	// gets text
+	const getText = (e) => {
 		e.preventDefault();
 		setText(text);
 	};
 
+	// updates said text
 	const onUpdate = {
 		id: goal._id,
 		text: text,
@@ -26,8 +28,8 @@ function GoalItem({ goal }) {
 				X
 			</button>
 
-			{/* update goal */}
-			<form onSubmit={onEdit}>
+			{/* gets text */}
+			<form onSubmit={getText}>
 				<div className="form-group">
 					<input
 						type="text"
@@ -38,6 +40,7 @@ function GoalItem({ goal }) {
 					/>
 				</div>
 
+				{/* update goal */}
 				<div className="form-group">
 					<button
 						className="btn btn-avg"
