@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import { deleteGoal, updateGoal } from "../features/goals/goalSlice";
 
@@ -25,7 +26,7 @@ function GoalItem({ goal }) {
 			<h2>{goal.text}</h2>
 			{/* delete goal */}
 			<button onClick={() => dispatch(deleteGoal(goal._id))} className="close">
-				X
+				<FaTrash />
 			</button>
 
 			{/* gets text */}
@@ -42,14 +43,16 @@ function GoalItem({ goal }) {
 
 				{/* update goal */}
 				<div className="form-group">
-					<button
-						className="btn btn-avg"
-						onClick={() => {
-							dispatch(updateGoal(onUpdate));
-						}}
-					>
-						Update
-					</button>
+					<div className="form-content">
+						<button
+							className="btn btn-block"
+							onClick={() => {
+								dispatch(updateGoal(onUpdate));
+							}}
+						>
+							Update Goal
+						</button>
+					</div>
 				</div>
 			</form>
 		</div>

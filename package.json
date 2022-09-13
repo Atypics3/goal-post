@@ -1,6 +1,6 @@
 {
 	"name": "restful-api",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "MERN app",
 	"main": "server.js",
 	"scripts": {
@@ -10,7 +10,7 @@
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
 		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
 	},
-	"author": "Edwin",
+	"author": "Edwin H.",
 	"license": "MIT",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",

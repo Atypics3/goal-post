@@ -22,6 +22,7 @@ function Dashboard() {
 			dispatch(reset());
 		}
 
+		// Fetches goal if user is validated. If not, redirects to login page
 		if (user) {
 			dispatch(getGoals());
 		} else {
@@ -36,7 +37,7 @@ function Dashboard() {
 	return (
 		<>
 			<section className="heading">
-				<h1>Welcome {user && user.name}</h1>
+				<h1>Welcome {user && user.name}!</h1>
 				<p>Goals Dashboard</p>
 			</section>
 
@@ -50,7 +51,7 @@ function Dashboard() {
 						))}
 					</div>
 				) : (
-					<h3>There are no goals set yet. </h3>
+					<h3>There are no goals set yet.</h3>
 				)}
 			</section>
 		</>
