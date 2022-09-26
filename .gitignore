@@ -18,10 +18,14 @@ build
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# ignore all logs
+*.log
 
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+
+# env and etc.
 .env
-server.js
+.server.js
 
