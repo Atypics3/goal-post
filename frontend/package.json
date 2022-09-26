@@ -22,8 +22,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"build-report": "webpack-bundle-analyzer --port 4200 public/dist/stats.json"
+		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -44,9 +43,6 @@
 		]
 	},
 	"devDependencies": {
-		"babel-plugin-import": "^1.13.5",
-		"webpack": "^5.74.0",
-		"webpack-bundle-analyzer": "^4.6.1",
-		"webpack-cli": "^4.10.0"
+		"babel-plugin-import": "^1.13.5"
 	}
 }

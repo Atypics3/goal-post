@@ -25,8 +25,6 @@ build
 # yarn-debug.log*
 # yarn-error.log*
 
-# env and etc.
+# env
 .env
-backend
-.server.js
 
