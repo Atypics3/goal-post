@@ -1,6 +1,6 @@
 {
 	"name": "restful-api",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "MERN app",
 	"main": "server.js",
 	"scripts": {
@@ -8,8 +8,7 @@
 		"server": "nodemon server.js",
 		"client": "npm start --prefix frontend",
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"build": "npm install && NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
-		"heroku-postbuild": ""
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 	},
 	"author": "Edwin H.",
 	"license": "MIT",
