@@ -27,5 +27,6 @@ build
 
 # env and etc.
 .env
+backend
 .server.js
 
