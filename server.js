@@ -9,6 +9,16 @@ connectDB();
 
 const app = express();
 
+//set up rate limiter: max of 5 requests per min
+let RateLimit = require("express-rate-limit");
+let limiter = new RateLimit({
+	windowMs: 1 * 60 * 1000, // 1 min
+	max: 5,
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
