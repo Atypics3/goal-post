@@ -10,6 +10,8 @@ coverage
 
 # production
 build
+/backend/
+/frontend/
 
 # misc
 .DS_Store
