@@ -9,13 +9,13 @@ connectDB();
 
 const app = express();
 
-//set up rate limiter: max of 5 requests per min
+//set up rate limiter: max of 15 requests per min
 app.set('trust proxy', '127.0.0.1');
 
 let RateLimit = require("express-rate-limit");
 let limiter = RateLimit({
 	windowMs: 1 * 60 * 1000, // 1 min
-	max: 5,
+	max: 15,
 });
 
 // apply rate limiter to all requests
